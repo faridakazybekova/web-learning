@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript – тест</title>
+  <style>
+    body { font-family: Arial; background: #f0f8ff; padding: 20px; }
+    main { background: white; padding: 20px; border-radius: 12px; max-width: 700px; margin: auto; box-shadow: 0 5px 15px rgba(0,0,0,0.1);}
+    h1 { color: #2980b9; text-align: center; }
+    label { display: block; margin-bottom: 8px; cursor: pointer; }
+    .correct { color: #27ae60; font-weight: bold; }
+    .wrong { color: #e74c3c; font-weight: bold; }
+    button { margin-top: 15px; padding: 10px 20px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer;}
+    button:hover { background: #2980b9; }
+    .result { margin-top: 15px; font-weight: bold; font-size: 18px; }
+  </style>
+  <script>
+    function checkTest(formId, answers) {
+      const form = document.getElementById(formId);
+      let score = 0;
+      let total = answers.length;
+
+      for (let i = 0; i < total; i++) {
+        const radios = form['q' + (i + 1)];
+        for (let r = 0; r < radios.length; r++) {
+          radios[r].parentElement.classList.remove('correct', 'wrong');
+        }
+      }
+
+      answers.forEach((answer, index) => {
+        const radios = form['q' + (index + 1)];
+        let selected = null;
+
+        for (let i = 0; i < radios.length; i++) {
+          if (radios[i].checked) selected = radios[i].value;
+          if (radios[i].value === answer) radios[i].parentElement.classList.add('correct');
+        }
+
+        if (selected && selected !== answer) {
+          for (let i = 0; i < radios.length; i++) {
+            if (radios[i].value === selected) {
+              radios[i].parentElement.classList.add('wrong');
+            }
+          }
+        }
+
+        if (selected === answer) score++;
+      });
+
+      const resultEl = document.getElementById(formId + '-result');
+      resultEl.classList.add('result');
+      resultEl.innerText = Ваш результат: ${score} из ${total};
+    }
+  </script>
+</head>
+<body>
+<main>
+  <h1>JavaScript – тест</h1>
+  <p>JavaScript — язык программирования для интерактивности на веб-страницах: обработка событий, анимации, динамическое изменение контента.</p>
+
+  <h2>Основные возможности JavaScript:</h2>
+  <ul>
+    <li>Работа с переменными: var, let, const</li>
+    <li>Функции для выполнения действий</li>
+    <li>Обработка событий: onclick, onmouseover и др.</li>
+    <li>Манипуляции с DOM: document.getElementById, querySelector и т.д.</li>
+    <li>Циклы и условия: for, while, if, switch</li>
+    <li>Массивы и объекты</li>
+  </ul>
+
+  <h2>Тест по JavaScript</h2>
+  <form id="js-test">
+    <p>1. Как вывести текст в консоль?</p>
+    <label><input type="radio" name="q1" value="console.log"> console.log()</label>
+    <label><input type="radio" name="q1" value="print"> print()</label>
+    <label><input type="radio" name="q1" value="alert"> alert()</label>
+
+    <p>2. Как создать переменную?</p>
+    <label><input type="radio" name="q2" value="var"> var</label>
+    <label><input type="radio" name="q2" value="variable"> variable</label>
+    <label><input type="radio" name="q2" value="let"> let</label>
+
+    <p>3. Как создать функцию?</p>
+    <label><input type="radio" name="q3" value="function myFunc()"> function myFunc()</label>
+    <label><input type="radio" name="q3" value="fun myFunc()"> fun myFunc()</label>
+    <label><input type="radio" name="q3" value="def myFunc()"> def myFunc()</label>
+
+    <button type="button" onclick="checkTest('js-test', ['console.log','let','function myFunc()'])">Проверить</button>
+  </form>
+  <p id="js-test-result"></p>
+</main>
+</body>
+</html>

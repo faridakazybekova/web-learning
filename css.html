@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+  <p>CSS (Cascading Style Sheets) — язык стилей, который управляет внешним видом HTML-страниц: цветами, шрифтами, отступами, расположением элементов.</p>
+
+  <h2>Основные возможности CSS:</h2>
+  <ul>
+    <li>color — цвет текста</li>
+    <li>background-color — цвет фона</li>
+    <li>font-size — размер шрифта</li>
+    <li>margin, padding — отступы вокруг и внутри элементов</li>
+    <li>border — рамки вокруг элементов</li>
+    <li>display, position — расположение элементов на странице</li>
+    <li>flex, grid — современные системы верстки</li>
+  </ul>
+
+  <h2>Тест по CSS</h2>
+  <form id="css-test">
+    <p>1. Как изменить цвет текста?</p>
+    <input type="radio" name="q1" value="color"> color<br>
+    <input type="radio" name="q1" value="font"> font<br>
+    <input type="radio" name="q1" value="text"> text<br>
+
+    <p>2. Как задать фон элемента?</p>
+    <input type="radio" name="q2" value="background-color"> background-color<br>
+    <input type="radio" name="q2" value="bgcolor"> bgcolor<br>
+    <input type="radio" name="q2" value="color"> color<br>
+
+    <p>3. Как изменить размер шрифта?</p>
+    <input type="radio" name="q3" value="font-size"> font-size<br>
+    <input type="radio" name="q3" value="text-size"> text-size<br>
+    <input type="radio" name="q3" value="size"> size<br>
+
+    <button type="button" onclick="checkTest('css-test', ['color','background-color','font-size'])">Проверить</button>
+  </form>
+  <p id="css-test-result"></p>
+</main>
+</body>
+</html>

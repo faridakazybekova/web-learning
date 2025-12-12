@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML – урок</title>
+  <style>
+    body { font-family: Arial; background: #f0f8ff; padding: 20px; }
+    main { background: white; padding: 20px; border-radius: 12px; max-width: 700px; margin: auto; box-shadow: 0 5px 15px rgba(0,0,0,0.1);}
+    h1 { color: #2980b9; text-align: center; }
+    label { display: block; margin-bottom: 8px; cursor: pointer; }
+    .correct { color: #27ae60; font-weight: bold; }
+    .wrong { color: #e74c3c; font-weight: bold; }
+    button { margin-top: 15px; padding: 10px 20px; background: #3498db; color: white; border: none; border-radius: 8px; cursor: pointer;}
+    button:hover { background: #2980b9; }
+    .result { margin-top: 15px; font-weight: bold; font-size: 18px; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>HTML – урок</h1>
+  <p>HTML (HyperText Markup Language) — язык разметки для веб-страниц.</p>
+
+  <h2>Основные элементы:</h2>
+  <ul>
+    <li>&lt;h1&gt; — заголовки</li>
+    <li>&lt;p&gt; — абзацы</li>
+    <li>&lt;a&gt; — ссылки</li>
+    <li>&lt;img&gt; — изображения</li>
+  </ul>
+
+  <h2>Тест по HTML</h2>
+  <form id="html-test">
+    <p>1. Какой тег для заголовка первого уровня?</p>
+    <label><input type="radio" name="q1" value="h1"> &lt;h1&gt;</label>
+    <label><input type="radio" name="q1" value="h2"> &lt;h2&gt;</label>
+    <label><input type="radio" name="q1" value="p"> &lt;p&gt;</label>
+
+    <p>2. Какой тег для ссылки?</p>
+    <label><input type="radio" name="q2" value="a"> &lt;a&gt;</label>
+    <label><input type="radio" name="q2" value="link"> &lt;link&gt;</label>
+    <label><input type="radio" name="q2" value="href"> &lt;href&gt;</label>
+
+    <p>3. Какой тег для списка с нумерацией?</p>
+    <label><input type="radio" name="q3" value="ol"> &lt;ol&gt;</label>
+    <label><input type="radio" name="q3" value="ul"> &lt;ul&gt;</label>
+    <label><input type="radio" name="q3" value="li"> &lt;li&gt;</label>
+
+    <button type="button" onclick="checkTest('html-test', ['h1','a','ol'])">Проверить</button>
+  </form>
+  <p id="html-test-result"></p>
+</main>
+
+<script>
+function checkTest(formId, answers) {
+  const form = document.getElementById(formId);
+  let score = 0;
+  const total = answers.length;
+
+  answers.forEach((_, index) => {
+    const radios = form.elements['q'+(index+1)];
+    Array.from(radios).forEach(r => r.parentElement.classList.remove('correct','wrong'));
+  });
+
+  answers.forEach((answer, index) => {
+    const radios = form.elements['q'+(index+1)];
+    const selected = Array.from(radios).find(r => r.checked)?.value;
+
+    Array.from(radios).forEach(radio => {
+      if (radio.value === answer) radio.parentElement.classList.add('correct'); // всегда подсвечивает правильный
+    });
+
+    if (selected && selected !== answer) {
+      Array.from(radios).forEach(radio => {
+        if (radio.value === selected) radio.parentElement.classList.add('wrong');
+      });
+    }
+
+    if (selected === answer) score++;
+  });
+
+  // Здесь важно использовать обратные кавычки ``, а не " или '
+  const resultEl = document.getElementById(formId+'-result');
+  resultEl.classList.add('result');
+  resultEl.innerText = Ваш результат: ${score} из ${total};
+}
+</script>
+</body>
+</html>

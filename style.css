@@ -1,0 +1,146 @@
+/* Общие стили */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #f0f8ff, #e6f2ff);
+  color: #333;
+}
+
+header, footer {
+  text-align: center;
+  padding: 20px;
+  background: #34495e;
+  color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+header h1 {
+  margin: 0 0 10px 0;
+}
+
+header a {
+  display: inline-block;
+  margin-top: 5px;
+  text-decoration: none;
+  color: #ecf0f1;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+header a:hover {
+  background-color: #2ecc71;
+  color: white;
+}
+
+/* Основной блок */
+main {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #ffffffcc; /* прозрачный белый фон */
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Заголовки */
+h2 {
+  color: #2980b9;
+  border-bottom: 2px solid #2980b9;
+  padding-bottom: 5px;
+  margin-top: 30px;
+}
+
+/* Списки */
+ul {
+  margin-left: 20px;
+}
+
+ul li {
+  margin-bottom: 8px;
+}
+
+/* Форма теста */
+form {
+  margin-top: 20px;
+}
+
+form p {
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+/* Радиокнопки */
+input[type="radio"] {
+  margin-right: 8px;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+/* Кнопка проверить */
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #2980b9;
+}
+
+/* Результат теста */
+.result {
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 8px;
+  background: #ecf0f1;
+  border-left: 5px solid #27ae60;
+}
+
+/* Подсветка правильного/неправильного ответа */
+.correct {
+  color: #27ae60;
+  font-weight: bold;
+}
+
+.wrong {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+/* Ссылки на темы */
+.topics {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.topic-card {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  background: #1abc9c;
+  color: white;
+  padding: 50px 60px;
+  border-radius: 16px;
+  font-size: 24px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.topic-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  background: #16a085;
+}

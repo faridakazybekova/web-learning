@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Учебный сайт по HTML, CSS, JS</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #f0f8ff, #e6f2ff);
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      text-align: center;
+      padding: 20px;
+      background: #34495e;
+      color: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .topic-card {
+      background: #1abc9c;
+      color: white;
+      text-align: center;
+      padding: 50px 60px;
+      border-radius: 16px;
+      font-size: 24px;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .topic-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      background: #16a085;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Учебный сайт по HTML, CSS и JavaScript</h1>
+    <p>Выберите тему для изучения и теста</p>
+  </header>
+  <main>
+    <a href="html.html" class="topic-card">HTML</a>
+    <a href="css.html" class="topic-card">CSS</a>
+    <a href="js.html" class="topic-card">JavaScript</a>
+  </main>
+</body>
+</html>
